@@ -72,8 +72,8 @@ int main(int argc, char * argv[]) {
 		printf("la chiave generata casualmente è : \n");
 			for(t = 0;  t != len1 ; t++)
 				{
-					k[i]= 32 + rand()%128;
-					printf("%c", k_cas[i]=k[i]);
+					k[t]= 32 + rand()%128;
+					printf("%c", k_cas[t]=k[t]);
 			
 				}
 		
