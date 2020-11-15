@@ -1,0 +1,100 @@
+//Nome: Shanjit  Cognome: Singh  Matricola: 315575
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+
+int main(int argc, char * argv[]) {
+    
+    
+    int a,i,t;
+    char m[128];
+    char k[128];
+    char k_cas[128];
+    char cripted[128];
+    char encripted[128];
+    char char_key[128];
+    int len1,len2,len3;
+    
+    puts("inserire il testo da cifrare :\n");
+    fgets(m,128,stdin);
+    len1=strlen(m)-1;
+    
+	do
+		{
+		
+			printf("selezionare 1 per inserire la chiave :\n");
+			printf("selezionare 2 per generare le chiave :\n");
+			scanf("%d",&a);
+		
+		}while (a != 1 && a != 2);
+		while (getchar()!='\n');
+
+    
+	if (a==1)
+	{
+		
+		
+		
+		do{
+			puts("inserisci la chiave : \n");
+			fgets(k,128,stdin);
+			len2=strlen(k)-1;
+			printf("la chiave e: %s", k);
+		}while (len2<len1);
+		
+		
+		for(i=0;i<len2;i++)
+			{
+				
+				char appoggio = m[i] ^ k[i];
+				cripted[i]= appoggio;
+				encripted[i] = cripted[i] ^ k[i];	
+		
+			}
+		
+			cripted[i] = '\0';
+		
+			printf("\n lunghezza della stringa : \n %ld", len1);
+			printf("\n lunghezza della chiave : \n %ld", len2);
+			printf("\n la stringa criptata : \n %s", cripted);
+			printf("\n la stringa decriptata è: \n %s " ,encripted);
+			
+	}
+	
+	if(a==2)
+	{
+		
+		srand(time(0));
+	
+		printf("la chiave generata casualmente è : \n");
+			for(t = 0;  t != len1 ; t++)
+				{
+					k[i]= 32 + rand()%128;
+					printf("%c", k_cas[i]=k[i]);
+			
+				}
+		
+		
+		for(i=0;i<strlen(m);i++)
+		{
+			char appoggio1 = m[i] ^ k_cas[i];
+			cripted[i]= appoggio1;
+			encripted[i] = cripted[i] ^ k_cas[i];
+		}
+		cripted[i] = '\0';
+		
+		
+		
+		printf("\n stringa criptata : \n %s", cripted);
+		printf("\n la stringa decriptata è: \n %s " ,encripted);
+		
+		
+	}
+	
+	
+	
+	return 0;
+}
